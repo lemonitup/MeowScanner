@@ -4,7 +4,7 @@ import socket
 from datetime import datetime
 
 # Check if the correct number of arguments are provided
-if len(sys.argv) == 4:  # Expecting 3 arguments: target IP, start port, end port
+if len(sys.argv) == 4:  #3 arguments target IP, starting port, ending port
 	target = socket.gethostbyname(sys.argv[1]) #gethostbyname basically resolve the hostname and resolves it into a IP address
 	#the sys first argument is after the script since the script is the 0 argument.
 
