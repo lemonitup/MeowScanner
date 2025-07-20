@@ -8,7 +8,7 @@ if len(sys.argv) == 4:  # 3 arguments: target IP, starting port, ending port
     target = socket.gethostbyname(sys.argv[1])  # Resolve hostname to IP
 
     first_port = int(sys.argv[2])  # Starting port
-    last_port = int(sys.argv[3])  # Ending port
+    last_port = int(sys.argv[3])   # Ending port
     
 else:
     print("Invalid Syntax: Error due to invalid number of arguments")
@@ -21,13 +21,15 @@ print(f"Scanning target: {target}")
 current_datetime = datetime.now()
 print(f"Time started: {current_datetime}")
 print("-" * 60)
-print("""
-  /\_/\\  
+
+# Raw string used here to avoid escape sequence warning for ASCII art
+print(r"""
+  /\_/\  
  ( o.o )
   > ^ <  
- /     \\      /MEOW    
+ /     \      /MEOW    
 |       |  
- \\     /  
+ \     /  
   `~~~`   
 """)
 
@@ -37,14 +39,11 @@ try:
         s.settimeout(1)  # Set timeout to 1 second
         result = s.connect_ex((target, port))  #establshing connection to the target ip address and the port...
 
-
         #if result 0 it means its successful if there is 1 or more it means that error are found
         if result == 0:
             print(f" Meow! Connection successful: Port {port} is open!")
 
-
-        s.close()  #  #close the socket connection and goes through the loop again to see the next port
-
+        s.close()  #close the socket connection and goes through the loop again to see the next port
 
 # Handle exceptions
 except KeyboardInterrupt:
